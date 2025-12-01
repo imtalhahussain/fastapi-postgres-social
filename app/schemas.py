@@ -22,7 +22,7 @@ class PostResponse(BaseModel):
 class PostUpdate(BaseModel):
     title: str
     content: str
-    
+     
 class Post(BaseModel):
     title: str
     content: str
@@ -42,3 +42,7 @@ class UserOut(BaseModel):
     created_at: datetime
     class config:
         orm_mode = True
+
+class UserLogin(BaseModel):
+    email : EmailStr
+    password : str

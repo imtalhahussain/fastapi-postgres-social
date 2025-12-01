@@ -10,7 +10,7 @@ from app import models
 from app import schemas
 from app import utils
 from app.database import engine, SessionLocal, Base, get_db
-from app.routers import post, user
+from app.routers import post, user, auth
 
 app = FastAPI()
 
@@ -42,6 +42,7 @@ def index_find_post(id):
 
 app.include_router(post.router)              
 app.include_router(user.router)
+app.include_router(auth.router)
 
 @app.get("/")
 async def root():
