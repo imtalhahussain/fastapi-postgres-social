@@ -43,7 +43,7 @@ def get_post(id : int, db: Session = Depends(get_db)):
     return post
 
 @router.delete("/{id}",status_code=204)
-def delete_post(id : int, db: Session = Depends(get_db)):
+def delete_post(id : int, db: Session = Depends(get_db), user_id: int = Depends(Oauth2.get_current_user)):
     #cursor.execute("""DELETE FROM posts WHERE(id) = %s returning *""",(str(id)),)
     #post_delete = cursor.fetchone()
     #conn.commit()
@@ -55,7 +55,7 @@ def delete_post(id : int, db: Session = Depends(get_db)):
     return Response(status_code=204)
 
 @router.put("/{id}",response_model= schemas.PostResponse)
-def update_post(id : int, updated_post: schemas.PostUpdate, db: Session = Depends(get_db)):
+def update_post(id : int, updated_post: schemas.PostUpdate, db: Session = Depends(get_db), user_id: int = Depends(Oauth2.get_current_user)):
     #cursor.execute(""" UPDATE posts SET title= %s, content= %s, published=%s WHERE id = %s RETURNING *""",(post.title, post.content, post.published,str(id)))
     #updated_post = cursor.fetchone()
     #conn.commit() 
