@@ -2,14 +2,14 @@
 A FastAPI + PostgreSQL backend for managing social media posts
 It supports creating, reading, updating, and deleting posts.  
 This project demonstrates clean architecture with SQLAlchemy models and Pydantic schemas.
-
+--
 ## Features
 - User authentication with JWT
 - CRUD operations for posts
 - PostgreSQL database integration
 - Pydantic schemas for validation
 - Automatic API docs with Swagger UI
-
+--
 ## Project Structure
 app/
  ├── main.py          # Entry point
